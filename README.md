@@ -16,3 +16,17 @@ Use the following command to start the server:
 ```
 uvicorn app:app --reload
 ```
+## How to Run NextJS Application
+
+Follow the steps below to run the NextJS App:
+
+### 1. Install Dependencies
+Ensure you have the latest version of Node
+```
+npm i
+```
+### 2. Run the Frontend
+Use the following command to start the server:
+```
+npm run dev
+```
