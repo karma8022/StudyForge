@@ -50,7 +50,7 @@ with open('output.json', 'w', encoding='utf-8') as json_file:
 
 
 # now i want to use this json file and then use google gemini to generate questions from 
-api_key = "AIzaSyDkaUhSZXuWo8WoqMdAVOkK3Y6AcXo_pJ4"
+api_key = ""
 
 def generate_questions_and_answers(text):
     if not text.strip():
