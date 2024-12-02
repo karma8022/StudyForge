@@ -44,13 +44,13 @@ export default function Navbar(): JSX.Element {
                 <span>Home</span>
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
               </Link>
-              <Link 
+              {/* <Link 
                 href="/upload" 
                 className="text-white/70 relative group px-3 py-2 text-sm font-medium transition-colors hover:text-white"
               >
                 <span>Upload</span>
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
-              </Link>
+              </Link> */}
               <Link 
                 href="/about" 
                 className="text-white/70 relative group px-3 py-2 text-sm font-medium transition-colors hover:text-white"
