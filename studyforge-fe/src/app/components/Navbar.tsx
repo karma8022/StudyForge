@@ -58,9 +58,11 @@ export default function Navbar(): JSX.Element {
                 <span>About</span>
                 <span className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></span>
               </Link>
+              <Link href="/upload">
               <button className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-5 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity transform hover:scale-105 duration-200 shadow-md shadow-purple-500/20">
                 Get Started
               </button>
+              </Link>
             </div>
           </div>
 
