@@ -33,13 +33,13 @@ def extract_text_from_pdf(pdf_path):
 
 def clean_text(text):
     # Replace newline characters with spaces and handle special characters
-    cleaned_text = text.replace("\n", " ").replace("�", "'")
+    cleaned_text = text.replace("\n", " ").replace("", "'")
     # Remove excessive whitespace
     cleaned_text = " ".join(cleaned_text.split())
     return cleaned_text
 
 # Example usage
-pdf_path = "./PDF/Mamba.pdf"
+pdf_path = "./PDF/math 2.pdf"
 text = extract_text_from_pdf(pdf_path)
 cleaned_text = clean_text(text)
 
@@ -53,6 +53,9 @@ with open('output.json', 'w', encoding='utf-8') as json_file:
 api_key = ""
 
 def generate_questions_and_answers(text):
+    if not text.strip():
+        return {"error": "Could not read text from the document"}
+    
     prompt = f"""
     You are a teaching assistant. Based on the following text, generate 5 questions along with their detailed answers to help someone understand the content better.
 
@@ -72,8 +75,10 @@ with open('output.json', 'r', encoding='utf-8') as json_file:
     data = json.load(json_file)
     text = data['text']
 
+if text == "'":
+    print("Could not read text from the document")
+    exit()  # Exit the program here
+
 print(text)
-
 qna = generate_questions_and_answers(text)
-
 print(qna.text)

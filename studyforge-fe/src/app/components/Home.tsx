@@ -1,60 +1,60 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 
-interface ApiResponse {
-  message: string;
-  // Add other expected API response properties
-}
+// interface ApiResponse {
+//   message: string;
+//   // Add other expected API response properties
+// }
 
 export default function Home(): JSX.Element {
-  const [data, setData] = useState<ApiResponse | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [hasError, setHasError] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>('');
+  // const [data, setData] = useState<ApiResponse | null>(null);
+  // const [isLoading, setIsLoading] = useState<boolean>(true);
+  // const [hasError, setHasError] = useState<boolean>(false);
+  // const [errorMessage, setErrorMessage] = useState<string>('');
 
-  useEffect(() => {
-    const fetchData = async (): Promise<void> => {
-      try {
-        const response = await fetch('http://localhost:8000/', {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+  // useEffect(() => {
+  //   const fetchData = async (): Promise<void> => {
+  //     try {
+  //       const response = await fetch('http://localhost:8000/', {
+  //         method: 'GET',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //       });
         
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
+  //       if (!response.ok) {
+  //         throw new Error(`HTTP error! status: ${response.status}`);
+  //       }
         
-        const result = await response.json();
-        console.log(result);
-        setData(result);
-      } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
-        console.error('Error fetching data:', errorMessage);
-        setErrorMessage(errorMessage);
-        setHasError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+  //       const result = await response.json();
+  //       console.log(result);
+  //       setData(result);
+  //     } catch (err) {
+  //       const errorMessage = err instanceof Error ? err.message : 'An unknown error occurred';
+  //       console.error('Error fetching data:', errorMessage);
+  //       setErrorMessage(errorMessage);
+  //       setHasError(true);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
-  if (isLoading) {
-    return <div className="text-center text-white">Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div className="text-center text-white">Loading...</div>;
+  // }
 
-  if (hasError) {
-    return (
-      <div className="text-center text-red-500">
-        <p className="text-white">Error loading data. Please try again later.</p>
-        <p className="text-sm text-white">{errorMessage}</p>
-      </div>
-    );
-  }
+  // if (hasError) {
+  //   return (
+  //     <div className="text-center text-red-500">
+  //       <p className="text-white">Error loading data. Please try again later.</p>
+  //       <p className="text-sm text-white">{errorMessage}</p>
+  //     </div>
+  //   );
+  // }
 
   return (
     <main className="text-white flex flex-col items-center w-full">
@@ -83,14 +83,11 @@ export default function Home(): JSX.Element {
           />
         </svg>
       </div>
-
-      {data && (
         <div className="text-center max-w-md mx-auto px-4">
           <p className="text-sm md:text-base text-white mt-4">
             Say hello to StudyForge, the ultimate tool for stress-free revision! Simply upload your child&apos;s textbook chapters, and let us craft personalized revision papers tailored for them. It&apos;s smart, simple, and the perfect study buddy for parents and kids alike.
           </p>
         </div>
-      )}
     </main>
   );
 }
